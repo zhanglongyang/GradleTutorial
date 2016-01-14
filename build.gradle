@@ -2,3 +2,13 @@ group 'com.thoughtworks'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+
+task printNames(group: "Gradle Tutorial", description: "Print project and task names") {
+    doFirst {
+        println("Project name is [$project.name]")
+    }
+
+    doLast {
+        println("Task name is [$name]")
+    }
+}
