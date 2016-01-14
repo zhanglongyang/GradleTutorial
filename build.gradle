@@ -3,6 +3,12 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
+// ./gradlew build
+// java -jar build/libs/GradleTutorial-1.0-SNAPSHOT.jar "Hello Gradle" "Hello World"
+jar {
+     manifest.attributes("Main-Class": 'com.thoughtworks.gradletutorial.Main')
+}
+
 task printNames(group: "Gradle Tutorial", description: "Print project and task names") {
     doFirst {
         println("Project name is [$project.name]")
