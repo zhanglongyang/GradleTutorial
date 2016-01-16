@@ -23,11 +23,36 @@ jar {
 }
 
 task printNames(group: "Gradle Tutorial", description: "Print project and task names") {
-    doFirst {
-        println("Project name is [$project.name]")
+    doFirst { println "Project name is [$project.name]" }
+
+    doLast { println "Task name is [$name]" }
+}
+
+task customTask(group: 'Custom') {
+    // configuration phase
+    println "--- configuration phase ---"
+
+    // execution phase
+    doLast { println "--- 1st inside doLast ---" }
+
+    doFirst { println "--- 1st inside doFirst ---" }
+
+    doLast { println "--- 2nd inside doLast ---" }
+
+    doFirst { println "--- 2nd inside doFirst ---" }
+}
+
+customTask << { println "--- 1st outside doLast ---" }
+
+customTask.doLast { println "--- 2nd outside doLast ---" }
+
+task hello {
+    ext {
+        greeting = "How are you?"
     }
 
     doLast {
-        println("Task name is [$name]")
+        println "Greeting: $greeting"
     }
 }
+
