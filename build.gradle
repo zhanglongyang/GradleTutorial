@@ -3,10 +3,19 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
-// ./gradlew build
-// java -jar build/libs/GradleTutorial-1.0-SNAPSHOT.jar "Hello Gradle" "Hello World"
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "com.github.lalyos:jfiglet:0.0.7"
+}
+
+// ./gradlew clean && ./gradlew build
+// java -jar build/libs/GradleTutorial-1.0-SNAPSHOT.jar Hello Gradle
 jar {
-     manifest.attributes("Main-Class": 'com.thoughtworks.gradletutorial.Main')
+    from configurations.compile.collect {zipTree it}
+    manifest.attributes("Main-Class": 'com.thoughtworks.gradletutorial.Main')
 }
 
 task printNames(group: "Gradle Tutorial", description: "Print project and task names") {
