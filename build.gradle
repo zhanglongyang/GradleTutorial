@@ -17,7 +17,7 @@ jar {
 }
 
 // java -jar build/libs/GradleTutorial-1.0-SNAPSHOT.jar Hello Gradle
-task runJar(type: Exec) {
+task runJar(type: Exec, dependsOn: jar) {
     executable 'java'
     args '-jar', "$jar.archivePath", "Hello Gradle"
 }
