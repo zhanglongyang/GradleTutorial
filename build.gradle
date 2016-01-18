@@ -3,6 +3,8 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
+defaultTasks 'defaultTask'
+
 task printNames(group: "Gradle Tutorial", description: "Print project and task names") {
     doFirst {
         println "Project name is [$project.name]"
@@ -28,3 +30,7 @@ task lazyDependedTask << {
 }
 
 dynamicTask1.dependsOn dynamicTask2, dynamicTask3
+
+task defaultTask << {
+    println "I'm the default task"
+}
