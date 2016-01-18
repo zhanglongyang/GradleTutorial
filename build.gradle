@@ -12,3 +12,11 @@ task printNames(group: "Gradle Tutorial", description: "Print project and task n
         println("Task name is [$name]")
     }
 }
+
+task lazyTask(group: "Gradle Tutorial", description: "Lazy Depending Task", dependsOn: "lazyDependedTask") << {
+    println "depending on lazyDependedTask"
+}
+
+task lazyDependedTask << {
+    println "I'm Lazy"
+}
