@@ -26,3 +26,5 @@ task lazyDependedTask << {
         println "I'm Dynamic Task #$counter"
     }
 }
+
+dynamicTask1.dependsOn dynamicTask2, dynamicTask3
