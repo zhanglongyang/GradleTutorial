@@ -5,11 +5,11 @@ apply plugin: 'java'
 
 task printNames(group: "Gradle Tutorial", description: "Print project and task names") {
     doFirst {
-        println("Project name is [$project.name]")
+        println "Project name is [$project.name]"
     }
 
     doLast {
-        println("Task name is [$name]")
+        println "Task name is [$name]"
     }
 }
 
@@ -19,4 +19,10 @@ task lazyTask(group: "Gradle Tutorial", description: "Lazy Depending Task", depe
 
 task lazyDependedTask << {
     println "I'm Lazy"
+}
+
+4.times { counter ->
+    task "dynamicTask$counter"(group: "Gradle Tutorial", description: "Dynamic Task #$counter") << {
+        println "I'm Dynamic Task #$counter"
+    }
 }
