@@ -2,3 +2,13 @@ group 'com.thoughtworks'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+
+println "Project API..."
+println "The name of the project directory: $name"
+println "The name of the project directory too: $project.name"
+println "The absolute path of the project: $path"
+println "A description for the project: $description"
+println "The directory containing the build script: $projectDir"
+println "projectDir/build: $buildDir"
+println "Group name: $group"
+println "Version: $version"
