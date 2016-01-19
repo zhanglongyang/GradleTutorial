@@ -42,9 +42,13 @@ task customTask(group: 'Custom') {
     doFirst { println "--- 2nd inside doFirst ---" }
 }
 
+customTask.doFirst { println "--- 1st outside doFirst ---" }
+
 customTask << { println "--- 1st outside doLast ---" }
 
 customTask.doLast { println "--- 2nd outside doLast ---" }
+
+customTask.doFirst { println "--- 2nd outside doFirst ---" }
 
 task hello {
     ext {
